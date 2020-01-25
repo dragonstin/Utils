@@ -1,2 +1,2 @@
 # Utils
-Little script to automate some process
+Little scripts to automate some process
