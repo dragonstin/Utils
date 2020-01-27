@@ -1,22 +1,22 @@
-from Tkinter import *
+import os 
+from  Tkinter import *
+import Tkinter, Tkconstants, tkFileDialog
 
 root = Tk()
+root.directory = tkFileDialog.askdirectory()
+print (root.directory)
 
-def buttonClick():
-    print(myEntry.get())
+path = root.directory 
 
-topFrame = Frame(root)
+os.path.isdir(path)
 
-bottomFrame = Frame(root)
+files_in_dir = []
 
-label = Label(topFrame, text="Diretory:")
-myButton = Button(topFrame, text="Button 1", fg="blue", command=buttonClick)
-myEntry = Entry(topFrame)
+# r=>root, d=>directories, f=>files
+for r, d, f in os.walk(path):
+   for item in f:
+      if '.txt'or '.docx' in item:
+         files_in_dir.append(os.path.join(r, item))
 
-topFrame.grid(row=0)
-bottomFrame.grid(row=5)
-label.grid(row=1, sticky=E)
-myEntry.grid(row=1, column=1)
-myButton.grid(row=1, column=2)
-
-root.mainloop()
+for item in files_in_dir:
+   print("file in dir: ", item.replace(' ', '_'))
