@@ -15,8 +15,12 @@ files_in_dir = []
 # r=>root, d=>directories, f=>files
 for r, d, f in os.walk(path):
    for item in f:
-      if '.txt'or '.docx' in item:
-         files_in_dir.append(os.path.join(r, item))
+      files_in_dir.append(os.path.join(r, item))
+    #  os.rename(os.path.join(r, item), os.path.join(r, item).replace(' ', '_'))
+   os.rename(r, r.replace(' ', '_'))
+
 
 for item in files_in_dir:
-   print("file in dir: ", item.replace(' ', '_'))
+   newName = item
+   os.rename(item, newName.replace(' ', '_'))
+   print("file in dir: ", item)
