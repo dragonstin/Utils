@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a test</title>
+</head>
+<body>
+    <table id="table">
+        <thead>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+</body>
+<script>
+    let myJson = '[{"userID" : 1, "userFirstName" : "Maria", "userLastName" : "Silva"},{"userID" : 2, "userFirstName" : "Lane", "userLastName" : "Wood"}]';
+
+    let loadJson = JSON.parse(myJson);
+
+    let mytableBody = document.getElementById("tableBody");
+    
+    let row = mytableBody.
+
+    
+    console.log(loadJson.length)
+
+    for (let i = 0; i < loadJson.length; i++) {
+        console.log('its here')
+        console.log(loadJson[i].userID)
+        console.log(loadJson[i].userFirstName)
+        console.log(loadJson[i].userLastName)
+    }
+    
+   /// https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+   //https://www.w3schools.com/jsref/dom_obj_select.asp
+    /*
+        document.body.onload = addElement;
+
+        function addElement () { 
+        // create a new div element 
+        var newDiv = document.createElement("div"); 
+        // and give it some content 
+        var newContent = document.createTextNode("Hi there and greetings!"); 
+        // add the text node to the newly created div
+        newDiv.appendChild(newContent);  
+
+        // add the newly created element and its content into the DOM 
+        var currentDiv = document.getElementById("div1"); 
+        document.body.insertBefore(newDiv, currentDiv); 
+    */
+    
+
+</script>
+</html>
