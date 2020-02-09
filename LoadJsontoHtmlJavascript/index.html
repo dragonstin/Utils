@@ -6,11 +6,14 @@
     <title>This is a test</title>
 </head>
 <body>
+    <div id="div1">meu div1</div>
     <table id="table">
         <thead>
-            <th>id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <tr>
+                <th>id</th>
+                <th>First Name</th>
+                <th>Last Name</th> 
+            </tr>
         </thead>
         <tbody id="tableBody">
 
@@ -18,42 +21,26 @@
     </table>
 </body>
 <script>
-    let myJson = '[{"userID" : 1, "userFirstName" : "Maria", "userLastName" : "Silva"},{"userID" : 2, "userFirstName" : "Lane", "userLastName" : "Wood"}]';
-
-    let loadJson = JSON.parse(myJson);
-
-    let mytableBody = document.getElementById("tableBody");
+   // https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
     
-    let row = mytableBody.
+    document.body.onload = addElement;
 
-    
-    console.log(loadJson.length)
-
-    for (let i = 0; i < loadJson.length; i++) {
-        console.log('its here')
-        console.log(loadJson[i].userID)
-        console.log(loadJson[i].userFirstName)
-        console.log(loadJson[i].userLastName)
-    }
-    
-   /// https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-   //https://www.w3schools.com/jsref/dom_obj_select.asp
-    /*
-        document.body.onload = addElement;
-
-        function addElement () { 
+    function addElement () { 
         // create a new div element 
-        var newDiv = document.createElement("div"); 
+        var newDiv = document.createElement("div");
+        var newDiv1 = document.createElement("div"); 
+
         // and give it some content 
         var newContent = document.createTextNode("Hi there and greetings!"); 
+       
         // add the text node to the newly created div
         newDiv.appendChild(newContent);  
-
+        newDiv1.appendChild(newDiv); // Result div inside of a div
+        
         // add the newly created element and its content into the DOM 
         var currentDiv = document.getElementById("div1"); 
-        document.body.insertBefore(newDiv, currentDiv); 
-    */
-    
+        document.body.insertBefore(newDiv1, currentDiv); 
+    }
 
 </script>
 </html>
