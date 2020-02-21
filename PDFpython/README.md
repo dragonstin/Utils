@@ -1,0 +1,3 @@
+## comands
+
+- `pip install reportlab`
