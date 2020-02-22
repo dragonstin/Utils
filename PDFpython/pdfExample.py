@@ -1,5 +1,8 @@
-# ###################################
-# Help
+from reportlab.pdfgen import canvas 
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase import pdfmetrics
+
+
 def drawMyRuler(pdf):
     pdf.drawString(100,810, 'x100')
     pdf.drawString(200,810, 'x200')
@@ -23,9 +26,10 @@ def drawMyRuler(pdf):
 # ###################################
 # Content
 fileName = 'MyDoc.pdf'
-documentTitle = 'Document title!'
-title = 'Tasmanian devil'
-subTitle = 'The largest carnivorous marsupial'
+documentTitle = 'Outdoor Advertising Renewal'
+title = '2020 - Outdoor Advertising Renewal '
+# Invoice OA-
+#subTitle = 'The largest carnivorous marsupial'
 
 textLines = [
 'The Tasmanian devil (Sarcophilus harrisii) is',
@@ -33,65 +37,39 @@ textLines = [
 'Dasyuridae.'
 ]
 
-image = 'tasmanianDevil.jpg'
+#image = 'tasmanianDevil.jpg'
 
 
-# ###################################
-# 0) Create document 
-from reportlab.pdfgen import canvas 
-
+# create the file
 pdf = canvas.Canvas(fileName)
 pdf.setTitle(documentTitle)
 
 
-
+# draw the rules
 drawMyRuler(pdf)
-# ###################################
-# 1) Title :: Set fonts 
-# # Print available fonts
-# for font in pdf.getAvailableFonts():
-#     print(font)
 
-# Register a new font
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfbase import pdfmetrics
-
+# select the font and size
 pdfmetrics.registerFont(
-    TTFont('abc', 'SakBunderan.ttf')
+    TTFont('abc', 'Arial.ttf')
 )
-pdf.setFont('abc', 36)
+pdf.setFont('abc', 18)
+
+# draw title
 pdf.drawCentredString(300, 770, title)
-
-
-
-
-
-
-
 
 
 # ###################################
 # 2) Sub Title 
 # RGB - Red Green and Blue
-pdf.setFillColorRGB(0, 0, 255)
-pdf.setFont("Courier-Bold", 24)
-pdf.drawCentredString(290,720, subTitle)
-
-
-
-
+#pdf.setFillColorRGB(0, 0, 255)
+#pdf.setFont("Courier-Bold", 24)
+#pdf.drawCentredString(290,720, subTitle)
 
 
 # ###################################
 # 3) Draw a line
-pdf.line(30, 710, 550, 710)
-
-
-
-
-
-
-
+# TODO search about the thickness of the line
+pdf.line(30, 750, 550, 750)
 
 
 # ###################################

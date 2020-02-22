@@ -1,49 +1,22 @@
-# ###################################
-# Help
-def drawMyRuler(pdf):
-    pdf.drawString(100,810, 'x100')
-    pdf.drawString(200,810, 'x200')
-    pdf.drawString(300,810, 'x300')
-    pdf.drawString(400,810, 'x400')
-    pdf.drawString(500,810, 'x500')
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
-    pdf.drawString(10,100, 'y100')
-    pdf.drawString(10,200, 'y200')
-    pdf.drawString(10,300, 'y300')
-    pdf.drawString(10,400, 'y400')
-    pdf.drawString(10,500, 'y500')
-    pdf.drawString(10,600, 'y600')
-    pdf.drawString(10,700, 'y700')
-    pdf.drawString(10,800, 'y800')    
+canvas = canvas.Canvas("form.pdf", pagesize=letter)
+canvas.setLineWidth(.3)
+canvas.setFont('Helvetica', 12)
 
+canvas.drawString(30,750,'10/30/19 Outdoor Advertising Renewal                     Invoice OA-')
+canvas.drawString(30,735,'OF ACME INDUSTRIES')
+canvas.drawString(500,750,"12/12/2010")
+canvas.line(480,747,580,747)
 
+canvas.drawString(275,725,'AMOUNT OWED:')
+canvas.drawString(500,725,"$1,000.00")
+canvas.line(378,723,580,723)
 
-# ###################################
-# Content
-fileName = 'MyDoc.pdf'
-documentTitle = 'Document title!'
-title = 'Tasmanian devil'
-subTitle = 'The largest carnivorous marsupial'
+canvas.drawString(30,703,'RECEIVED BY:')
+canvas.line(120,700,580,700)
 
-textLines = [
-'The Tasmanian devil (Sarcophilus harrisii) is',
-'a carnivorous marsupial of the family',
-'Dasyuridae.'
-]
+canvas.drawString(120,703,"JOHN DOE")
 
-image = 'tasmanianDevil.jpg'
-
-
-# ###################################
-# 0) Create document 
-from reportlab.pdfgen import canvas 
-
-pdf = canvas.Canvas(fileName)
-
-
-#pdf.setTitle(documentTitle)
-
-
-
-
-pdf.save()
+canvas.save()
