@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-youtube/*.mp3
+youtube/
