@@ -1,14 +1,20 @@
 from difflib import SequenceMatcher
-from  Tkinter import Tk
-import Tkconstants, tkFileDialog
+from  tkinter import *
 import os
 import glob
 
 
-myDir= str('myfolder')
-playlist = 'playlist_url'
+myDir= 'John Mayer'
 
-os.system('youtube-dl --download-archive downloaded.txt --no-overwrites -i -o "./'+myDir+'/%(title)s.%(ext)s" --yes-playlist --extract-audio --audio-format mp3 --audio-quality 0 --socket-timeout 5 '+ playlist)
+# Playlist Url need to have the format below
+# https://www.youtube.com/playlist?list=RDCLAK5uy_lGEOjy5U8xV41C8_LyqNnAZKOH6sGyutI
+playlist = 'https://www.youtube.com/playlist?list=OLAK5uy_lx7e5iEu9P3h1YbwPbh67WJ6MksezihF8'
+
+
+os.system('youtube-dl --download-archive downloaded.txt -w -i -o "./'+myDir+'/%(title)s.%(ext)s" --yes-playlist --extract-audio --audio-format mp3 --audio-quality 0 --socket-timeout 5 '+ playlist)
+
+# Version python 2.7
+# os.system('youtube-dl --download-archive downloaded.txt --no-overwrites -i -o "./'+myDir+'/%(title)s.%(ext)s" --yes-playlist --extract-audio --audio-format mp3 --audio-quality 0 --socket-timeout 5 '+ playlist)
    
 '''
     Parameters on youtube-dl
